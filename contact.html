@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Json Baby!</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="./scripts/api.js"></script>
+    <script src="./scripts/topMenu.js" defer></script>
+    <script src="./scripts/contact.js" defer></script>
+  </head>
+  <body>
+    <nav>
+      <ul id="menu" class="wrapper">
+        <li id="home"><a href="./index.html">Home</a></li>
+        <li id="posts"><a href="./posts.html">Posts</a></li>
+        <li id="contact" class="selected">
+          <a href="./contact.html">Contact</a>
+        </li>
+        <li id="profile">
+          <a href="./profile.html">Profile</a>
+        </li>
+      </ul>
+    </nav>
+  </body>
+
+  <header>
+    <h1>Contact</h1>
+  </header>
+
+  <main>
+    <div id="contact-form-wrapper">
+      <form id="contact-form">
+        <div>
+          <input type="text" name="name" id="contact-name" placeholder="Name" />
+          <input
+            type="text"
+            name="email"
+            id="contact-email"
+            placeholder="Email"
+          />
+        </div>
+        <div>
+          <input
+            type="text"
+            name="topic"
+            id="contact-topic"
+            placeholder="Topic"
+          />
+        </div>
+        <div>
+          <textarea
+            name="message"
+            id="contact-message"
+            cols="30"
+            rows="10"
+            placeholder="Type your message..."
+          ></textarea>
+        </div>
+        <button type="submit" id="contact-submit">Send!</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <div id="contact-info"></div>
+  </footer>
+</html>
