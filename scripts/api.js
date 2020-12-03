@@ -55,7 +55,7 @@ var Api;
         });
     }
     Api.getPosts = getPosts;
-    function getUser(id) {
+    function getUserById(id) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
@@ -72,7 +72,25 @@ var Api;
             });
         });
     }
-    Api.getUser = getUser;
+    Api.getUserById = getUserById;
+    function getUsers() {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                return [2 /*return*/, fetch(path + "/users")
+                        .then(function (res) { return __awaiter(_this, void 0, void 0, function () {
+                        return __generator(this, function (_a) {
+                            return [2 /*return*/, res.json()];
+                        });
+                    }); })
+                        .then(function (users) {
+                        console.log(users);
+                        return users.map(function (user) { return new User(user); });
+                    })];
+            });
+        });
+    }
+    Api.getUsers = getUsers;
     function applyData(object, data) {
         for (var key in data) {
             if (Object.prototype.hasOwnProperty.call(data, key)) {
@@ -105,7 +123,7 @@ var Api;
                             authorSpan.append("by ");
                             a = document.createElement("a");
                             a.href = "profile.html?userId=" + this.userId;
-                            return [4 /*yield*/, getUser(this.userId)];
+                            return [4 /*yield*/, getUserById(this.userId)];
                         case 1:
                             user = _a.sent();
                             a.append(user.name);
@@ -134,6 +152,36 @@ var Api;
         function User(user) {
             applyData(this, user);
         }
+        User.prototype.makeSmallContainer = function () {
+            return __awaiter(this, void 0, void 0, function () {
+                var profileObj, key, targetElem, key, targetElem, key, targetElem;
+                return __generator(this, function (_a) {
+                    profileObj = document
+                        .getElementById("profile-template")
+                        .cloneNode(true);
+                    profileObj.id = "";
+                    for (key in this) {
+                        targetElem = profileObj.querySelector(".profile-" + key);
+                        if (targetElem) {
+                            targetElem.append(this[key]);
+                        }
+                    }
+                    for (key in this.address) {
+                        targetElem = profileObj.querySelector(".profile-address-" + key);
+                        if (targetElem) {
+                            targetElem.append(this.address[key]);
+                        }
+                    }
+                    for (key in this.company) {
+                        targetElem = profileObj.querySelector(".profile-company-" + key);
+                        if (targetElem) {
+                            targetElem.append(this.company[key]);
+                        }
+                    }
+                    return [2 /*return*/, profileObj];
+                });
+            });
+        };
         return User;
     }());
     Api.User = User;

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Json Baby!</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="./scripts/api.js"></script>
     <script src="./scripts/profile.js" defer></script>
     <script src="./scripts/topMenu.js" defer></script>
   </head>
@@ -21,5 +22,80 @@
         </li>
       </ul>
     </nav>
+
+    <header>
+      <h1>Profile(s)</h1>
+    </header>
+
+    <main>
+      <div id="profiles-container">
+        <div class="profile-obj" id="profile-template">
+          <h3 class="profile-header-first">General</h3>
+
+          <div>
+            <p class="profile-key">Name:</p>
+            <p class="profile-value profile-name"></p>
+          </div>
+          <div>
+            <p class="profile-key">Username:</p>
+            <p class="profile-value profile-username"></p>
+          </div>
+          <div>
+            <p class="profile-key">Email:</p>
+            <p class="profile-value profile-email"></p>
+          </div>
+          <div>
+            <p class="profile-key">Phone:</p>
+            <p class="profile-value profile-phone"></p>
+          </div>
+          <div>
+            <p class="profile-key">Website:</p>
+            <p class="profile-value profile-website"></p>
+          </div>
+
+          <h3 class="profile-header">Address</h3>
+
+          <div>
+            <p class="profile-key">Street:</p>
+            <p class="profile-value profile-address-street"></p>
+          </div>
+          <div>
+            <p class="profile-key">Suite:</p>
+            <p class="profile-value profile-address-suite"></p>
+          </div>
+          <div>
+            <p class="profile-key">City:</p>
+            <p class="profile-value profile-address-city"></p>
+          </div>
+          <div>
+            <p class="profile-key">Zipcode:</p>
+            <p class="profile-value profile-address-zipcode"></p>
+          </div>
+
+          <h3 class="profile-header">Company</h3>
+
+          <div>
+            <p class="profile-key">Name:</p>
+            <p class="profile-value profile-company-name"></p>
+          </div>
+          <div>
+            <p class="profile-key">Catch:</p>
+            <p class="profile-value profile-company-catchPhrase"></p>
+          </div>
+          <div>
+            <p class="profile-key">Bs:</p>
+            <p class="profile-value profile-company-bs"></p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div id="contact-info">
+        <span>Monkeys Association inc.</span>
+        <span>+55(61)99887-6345</span>
+        <span>Rainbow Road 69420, Somewhere over the rainbow</span>
+      </div>
+    </footer>
   </body>
 </html>
