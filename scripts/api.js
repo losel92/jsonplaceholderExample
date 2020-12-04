@@ -84,7 +84,6 @@ var Api;
                         });
                     }); })
                         .then(function (users) {
-                        console.log(users);
                         return users.map(function (user) { return new User(user); });
                     })];
             });

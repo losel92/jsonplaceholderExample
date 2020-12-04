@@ -6,13 +6,13 @@ document.getElementById("contact-form").addEventListener("submit", function (eve
     var message = document.getElementById("contact-message");
     var objects = [name, email, topic, message];
     // Clear all errors
-    objects.forEach(function (obj) {
-        obj.nextElementSibling.innerHTML = "";
-        obj.nextElementSibling.style.display = "none";
+    objects.forEach(function (_a) {
+        var nextElementSibling = _a.nextElementSibling;
+        nextElementSibling.innerHTML = "";
+        nextElementSibling.style.display = "none";
     });
     // test length
     objects.forEach(function (obj) {
-        console.log(obj.value, obj.nextElementSibling);
         if (!obj.value.length) {
             obj.nextElementSibling.innerHTML = "Must not be empty";
             obj.nextElementSibling.style.display = "block";
@@ -31,7 +31,6 @@ document.getElementById("contact-form").addEventListener("submit", function (eve
         email.nextElementSibling.style.display = "block";
         formIsValid = false;
     }
-    console.log(formIsValid);
     if (!formIsValid)
         event.preventDefault();
     else
