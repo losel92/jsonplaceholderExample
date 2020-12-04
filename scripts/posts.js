@@ -35,8 +35,28 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var _this = this;
+var searchQuery = new URL(window.location.href).searchParams.get("q");
+var searchBar = document.getElementById("profile-search-bar");
 Api.getPosts().then(function (posts) {
-    posts.map(function (post) { return __awaiter(_this, void 0, void 0, function () {
+    posts
+        .filter(function (post) {
+        // Filter if there's a search
+        if (searchQuery) {
+            for (var key in post) {
+                if (typeof post[key] == "string") {
+                    if (post[key]
+                        .toLowerCase()
+                        .includes(searchQuery.toLowerCase())) {
+                        return true;
+                    }
+                }
+            }
+        }
+        else {
+            return true;
+        }
+    })
+        .map(function (post) { return __awaiter(_this, void 0, void 0, function () {
         var wrapper, postObj, title, body;
         return __generator(this, function (_a) {
             switch (_a.label) {
@@ -63,4 +83,11 @@ Api.getPosts().then(function (posts) {
             }
         });
     }); });
+});
+document
+    .getElementById("profile-search-bar")
+    .addEventListener("submit", function (event) {
+    event.preventDefault();
+    var searchQuery = document.getElementById("profile-search-value").value;
+    window.location.replace("posts.html?q=" + searchQuery);
 });
